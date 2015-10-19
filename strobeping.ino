@@ -8,8 +8,8 @@
 #define ECHO_PIN     11  // Arduino pin tied to echo pin on the ultrasonic sensor.
 #define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 #define strobepin 3 
-#define MS_ON 40
-#define MS_OFF  22
+#define MS_ON 20
+#define MS_OFF  10
 
 //#define  DEBUG_SERIAL
 
@@ -33,7 +33,7 @@ void loop() {
 
 	unsigned long  curtime = millis();
 	if (strobe) {
-		if (curtime > (strobe_start + 2000)){
+		if (curtime > (strobe_start + 1000)){
 			strobe = false;
 			last_trig = curtime;
 			digitalWrite(strobepin, LOW);
